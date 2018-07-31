@@ -1,0 +1,90 @@
+*{
+	margin: 0;padding: 0;
+	-webkit-overflow-scrolling:touch;
+}
+html{
+	font-size: 13.33vw;
+}
+body{
+	width: 100%;
+	margin: 0 auto;
+	font-family:'微软雅黑', 'helvetica neue',tahoma,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+	font-size: 9px;
+}
+img{
+	display: block;
+	border: 0;
+}
+a{
+	text-decoration: none;
+	display: block;
+}
+ul,li{
+	list-style: none;
+}
+i,em{
+	font-style: normal;
+}
+b,strong{
+	font-weight: 100;
+}
+a{
+	text-decoration: none;
+}
+.cl:after,.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden
+}
+.cl,.clearfix{
+	zoom:1
+}
+input,textarea,select{
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	border-radius: 0;
+	border: 0;
+	outline: none;
+}
+textarea::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: #999999;
+	font-size:0.26rem;
+} 
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: #999999;
+	font-size:0.26rem;
+} 
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: #999999;
+	font-size:0.26rem;
+} 
+textarea:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: #999999;
+	font-size:0.26rem;
+}
+/*++++++++++++++++ input placeholder++++++++++++++++*/
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: #999999;
+	font-size:0.28rem;
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: #999999;
+	font-size:0.28rem;
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: #999999;
+	font-size:0.28rem;
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: #999999;
+	font-size:0.28rem;
+}
+input::-webkit-search-cancel-button{
+	display: none;
+}
+/*--清除IE下的 search 叉号*/
+input[type=search]::-ms-clear{
+	display: none;
+}
