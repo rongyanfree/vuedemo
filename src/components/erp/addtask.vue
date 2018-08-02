@@ -13,8 +13,8 @@
 	        </li>
 	        <li class="ry_UI twomodule_UI">
 	            <span class="">计划开始</span>
-	            <div class="iDate addtaskDate full">
-	                <input type="text" name="task_planbegin" value="" placeholder="请选择计划开始时间">
+	            <div class="iDate addtaskDate full" id="task_planbegin">
+	                <input type="text" name="task_planbegin" v-model="task_planbegin" placeholder="请选择计划开始时间">
 	                <button type="button" class="addOn"></button>
 	            </div>
 	            <span class="">计划结束</span>
@@ -76,10 +76,27 @@
 		name:'addtask',
 		data(){
 			return{
-
+				task_planbegin:'',
 			}
 		},
-		created:function(){
+		mounted:function(){
+
+			var that = this;
+			let calendar1 = new datePicker();
+	      	calendar1.init({
+	         	'trigger': '#task_planbegin', /*选择器，触发弹出插件*/
+	         	'type': 'date',/*date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择*/
+	         	'minDate':'1900-1-1',/*最小日期*/
+	         	'maxDate':new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate(),/*最大日期*/
+	         	'onSubmit':function(){/*确认时触发事件*/
+	             	that.task_planbegin = calendar1.value;
+
+	             	console.log(that.chooseMonth)
+	         	},
+	         	'onClose':function(){/*取消时触发事件*/
+
+	         	}
+	        });
 			
 		},
 		methods:{

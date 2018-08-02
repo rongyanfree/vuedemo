@@ -63,7 +63,7 @@
 	         	'onClose':function(){/*取消时触发事件*/
 
 	         	}
-	      });
+	        });
 					
 		},
 		created(){
