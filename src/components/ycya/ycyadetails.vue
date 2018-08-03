@@ -27,8 +27,8 @@
 	            </li>
 	            <li class="ry_UI">
 	                <span>检查时间</span>
-	                <div class="iDate full">
-	                    <input type="text" name="check_time" id="check_time" placeholder="请选择检查时间" v-bind:value="YCYA_Data.check_time">
+	                <div class="iDate full" id="check_time">
+	                    <input type="text" name="check_time" placeholder="请选择检查时间" v-model="check_time">
 	                    <button type="button" class="addOn"></button>
 	                </div>
 	            </li>
@@ -102,18 +102,33 @@
 			return{
 				YCYA_Data:{
 					issued_time:"2018-12-02",
-					check_time:'2018-12-25',
-					ee_name:'哒哒哒',
-					promise:'年轻人少熬夜多吃菜多睡觉',
+					ee_name:'承诺人姓名',
+					promise:'承诺内容',
 					result_define:'结果定义',
 					report:'检查人汇报',
-
-
-				}
+				},
+				check_time:'',
 			}
 		},
 		activated(){
 			document.getElementById('app').scrollTop = 0;
+		},
+		mounted(){
+			let that = this;
+			let calendar1 = new datePicker();
+	      	calendar1.init({
+	         	'trigger': '#check_time', /*选择器，触发弹出插件*/
+	         	'type': 'date',/*date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择*/
+	         	'minDate':'1900-1-1',/*最小日期*/
+	         	'maxDate':new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate(),/*最大日期*/
+	         	'onSubmit':function(){/*确认时触发事件*/
+	             	that.check_time = calendar1.value;
+	             	console.log(that.check_time)
+	         	},
+	         	'onClose':function(){/*取消时触发事件*/
+
+	         	}
+	        });
 		},
 		methods:{
 			sureToaddycya(){
