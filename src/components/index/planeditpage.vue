@@ -107,7 +107,7 @@
         },
         methods:{
             realityresult:function(){
-
+                this.$router.go(-1);
             },
             finishfn:function(){
                 this.$router.go(-1);

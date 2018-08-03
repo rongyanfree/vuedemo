@@ -18,15 +18,15 @@
 	                <button type="button" class="addOn"></button>
 	            </div>
 	            <span class="">计划结束</span>
-	            <div class="iDate addtaskDate full">
-	                <input type="text" name="task_planover" value="" placeholder="请选择计划结束时间">
+	            <div class="iDate addtaskDate full" id="task_planover">
+	                <input type="text" name="task_planover" v-model="task_planover" placeholder="请选择计划结束时间">
 	                <button type="button" class="addOn"></button>
 	            </div>
 	        </li>
 	        <li class="ry_UI twomodule_UI">
 	            <span class="">实际开始</span>
-	            <div class="iDate addtaskDate full">
-	                <input type="text" name="task_factbegin" value="" placeholder="请选择计划开始时间">
+	            <div class="iDate addtaskDate full" id="task_factbegin">
+	                <input type="text" name="task_factbegin" v-model="task_factbegin" value="" placeholder="请选择计划开始时间">
 	                <button type="button" class="addOn"></button>
 	            </div>
 	            <span class="task_factover_li" style="display: none;">
@@ -77,6 +77,8 @@
 		data(){
 			return{
 				task_planbegin:'',
+				task_planover:'',
+				task_factbegin:'',
 			}
 		},
 		mounted:function(){
@@ -91,7 +93,37 @@
 	         	'onSubmit':function(){/*确认时触发事件*/
 	             	that.task_planbegin = calendar1.value;
 
-	             	console.log(that.chooseMonth)
+	             	console.log(that.task_planbegin)
+	         	},
+	         	'onClose':function(){/*取消时触发事件*/
+
+	         	}
+	        });
+
+	        let calendar2 = new datePicker();
+	      	calendar2.init({
+	         	'trigger': '#task_planover', /*选择器，触发弹出插件*/
+	         	'type': 'date',/*date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择*/
+	         	'minDate':'1900-1-1',/*最小日期*/
+	         	'maxDate':new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate(),/*最大日期*/
+	         	'onSubmit':function(){/*确认时触发事件*/
+	             	that.task_planover = calendar2.value;
+	             	console.log(that.task_planover)
+	         	},
+	         	'onClose':function(){/*取消时触发事件*/
+
+	         	}
+	        });
+
+	        let calendar3 = new datePicker();
+	      	calendar3.init({
+	         	'trigger': '#task_factbegin', /*选择器，触发弹出插件*/
+	         	'type': 'date',/*date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择*/
+	         	'minDate':'1900-1-1',/*最小日期*/
+	         	'maxDate':new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate(),/*最大日期*/
+	         	'onSubmit':function(){/*确认时触发事件*/
+	             	that.task_factbegin = calendar3.value;
+	             	console.log(that.task_factbegin)
 	         	},
 	         	'onClose':function(){/*取消时触发事件*/
 
